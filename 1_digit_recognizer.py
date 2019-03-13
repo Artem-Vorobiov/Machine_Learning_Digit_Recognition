@@ -4,25 +4,19 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from keras.utils.np_utils import to_categorical # convert to one-hot-encoding
 
-train   = pd.read_csv('data/train.csv')
-Y_train = train['label']
-X_train = train.drop(labels = ["label"],axis = 1) 
+
+###############################		Digit Recognizer 	###############################
+#######################################################################################
+
+# 	Loading data
+
+sub     = pd.read_csv('cnn_mnist_d.csv')
+sub_2   = pd.read_csv('data/sample_submission.csv')
 
 print('\n\t\t\t Start Off \n')
-print(train.shape)
-print('\n\n')
+print(sub.shape)
+print(sub_2.shape)
+print('\n')
+print(type(sub))
+print(type(sub_2))
 
-
-# sns.countplot(Y_train)
-# plt.show()
-
-###################################################
-###### 			КРУТАЯ ШТУКА 		######
-
-#	КАК ЭТО МОЖНО СДЕЛАТЬ В РУЧНУЮ ?
-Y_train = to_categorical(Y_train, num_classes = 10)
-###################################################
-
-print(Y_train)
-print('\n\n')
-print(Y_train.shape)
